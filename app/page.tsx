@@ -2,12 +2,14 @@ import CursorFX from "@/components/CursorFX";
 import Footer from "@/components/Footer";
 import GlowOrbs from "@/components/GlowOrbs";
 import ProjectCard from "@/components/ProjectCard";
+import SmoothScroll from "@/components/SmoothScroll";
 import { projects } from "@/data/projects";
 
 export default function Home() {
   return (
     <>
       <div className="noise" />
+      <SmoothScroll />
       <CursorFX />
 
       <header>
@@ -65,14 +67,14 @@ export default function Home() {
       <div className="marquee-wrap">
         <div className="marquee">
           <span>
-            REACT <em>•</em> NEXT.JS <em>•</em> JAVASCRIPT <em>•</em>{" "}
-            ACCESSIBLE UI <em>•</em> ANIMATION <em>•</em> VITE <em>•</em>{" "}
-            FREELANCE READY <em>•</em>
+            REACT <em>✦</em> NEXT.JS <em>✦</em> JAVASCRIPT <em>✦</em>{" "}
+            ACCESSIBLE UI <em>✦</em> ANIMATION <em>✦</em> VITE <em>✦</em>{" "}
+            FREELANCE READY <em>✦</em>
           </span>
           <span>
-            REACT <em>•</em> NEXT.JS <em>•</em> JAVASCRIPT <em>•</em>{" "}
-            ACCESSIBLE UI <em>•</em> ANIMATION <em>•</em> VITE <em>•</em>{" "}
-            FREELANCE READY <em>•</em>
+            REACT <em>✦</em> NEXT.JS <em>✦</em> JAVASCRIPT <em>✦</em>{" "}
+            ACCESSIBLE UI <em>✦</em> ANIMATION <em>✦</em> VITE <em>✦</em>{" "}
+            FREELANCE READY <em>✦</em>
           </span>
         </div>
       </div>
@@ -190,7 +192,7 @@ export default function Home() {
         </h2>
         <div className="timeline">
           <div className="t-item reveal">
-            <span className="t-tag">Before code</span>
+            <span className="t-tag">01 / 04 — Before code</span>
             <h4>Business Development &amp; Sales</h4>
             <p>
               Years in BPO sales closing, team leadership, medical
@@ -199,7 +201,7 @@ export default function Home() {
             </p>
           </div>
           <div className="t-item reveal">
-            <span className="t-tag">Foundation</span>
+            <span className="t-tag">02 / 04 — Foundation</span>
             <h4>Meta Front-End Developer Certificate</h4>
             <p>
               Coursera certification, plus ongoing BSc in Computer Science —
@@ -207,7 +209,7 @@ export default function Home() {
             </p>
           </div>
           <div className="t-item reveal">
-            <span className="t-tag">Internships</span>
+            <span className="t-tag">03 / 04 — Internships</span>
             <h4>CodeAlpha → DecodeLabs → Zynvex Solutions</h4>
             <p>
               Shipped an image gallery, music player, and portfolio at
@@ -216,7 +218,7 @@ export default function Home() {
             </p>
           </div>
           <div className="t-item reveal">
-            <span className="t-tag">Now</span>
+            <span className="t-tag">04 / 04 — Now</span>
             <h4>Building Warrantix, hunting freelance clients</h4>
             <p>
               Finishing my own CRM for my warranty sales office, then
