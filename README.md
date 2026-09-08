@@ -10,6 +10,8 @@ npm run dev
 ```
 
 Open http://localhost:3000.
+OR
+https://portfolio-next-seven-orpin.vercel.app/
 
 ## Build for production
 
