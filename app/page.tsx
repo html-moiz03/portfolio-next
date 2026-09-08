@@ -1,3 +1,4 @@
+import Image from "next/image";
 import CursorFX from "@/components/CursorFX";
 import Footer from "@/components/Footer";
 import GlowOrbs from "@/components/GlowOrbs";
@@ -26,7 +27,6 @@ export default function Home() {
       </header>
 
       <section className="hero" id="top">
-        <div className="hero-blob" />
         <span className="hero-eyebrow">
           <span className="dot" /> AVAILABLE FOR FREELANCE WORK
         </span>
@@ -34,11 +34,21 @@ export default function Home() {
           <span className="line">
             <span>MALIK</span>
           </span>
-          <span className="line">
+          <span className="line line-moiz">
             <span>ABDUL MOIZ</span>
           </span>
           <span className="line">
             <span>BUILDS WEB.</span>
+          </span>
+          <span className="hero-pop-wrap">
+            <Image
+              src="/portrait-pop.png"
+              alt="Portrait of Malik Abdul Moiz"
+              width={1145}
+              height={1374}
+              priority
+              className="hero-pop"
+            />
           </span>
         </h1>
         <p className="lead">

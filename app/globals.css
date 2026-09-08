@@ -319,6 +319,7 @@ section {
   }
 }
 .hero h1 {
+  position: relative;
   font-size: clamp(3rem, 10vw, 8.5rem);
   text-transform: uppercase;
 }
@@ -345,6 +346,48 @@ section {
 @keyframes riseUp {
   to {
     transform: translateY(0);
+  }
+}
+
+/* ---------- hero pop-in portrait ---------- */
+.hero-pop-wrap {
+  position: absolute;
+  top: 0.62em;
+  right: 4vw;
+  width: clamp(150px, 19vw, 250px);
+  z-index: 3;
+  pointer-events: none;
+  /* low-fps, stepped slide-in from off-screen right, landing over "MOIZ" */
+  animation: heroPopIn 0.9s steps(7, end) 0.5s both;
+}
+.hero-pop {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: rotate(3deg);
+  filter: drop-shadow(9px 9px 0 var(--ink));
+}
+@keyframes heroPopIn {
+  0% {
+    transform: translateX(120%) translateY(-10%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-pop-wrap {
+    animation: none;
+  }
+}
+@media (max-width: 720px) {
+  .hero-pop-wrap {
+    display: block;
+    position: static;
+    width: clamp(120px, 40vw, 180px);
+    margin: 18px 0 0 auto;
   }
 }
 .hero p.lead {
@@ -382,52 +425,6 @@ section {
 }
 .btn.alt:hover {
   box-shadow: 10px 10px 0 var(--electric-blue);
-}
-
-.hero-blob {
-  position: absolute;
-  top: 12%;
-  right: 2%;
-  width: min(38vw, 440px);
-  aspect-ratio: 1;
-  background: conic-gradient(
-    from 90deg,
-    var(--hot-pink),
-    var(--hot-orange),
-    var(--acid-yellow),
-    var(--mint),
-    var(--electric-blue),
-    var(--grape),
-    var(--hot-pink)
-  );
-  border-radius: 42% 58% 65% 35% / 45% 40% 60% 55%;
-  filter: blur(1px);
-  opacity: 0.85;
-  z-index: -1;
-  animation: morph 9s ease-in-out infinite, spin 26s linear infinite;
-  box-shadow: 0 0 0 3px var(--ink) inset;
-  will-change: border-radius, transform;
-  transform: translateZ(0);
-}
-@keyframes morph {
-  0%,
-  100% {
-    border-radius: 42% 58% 65% 35% / 45% 40% 60% 55%;
-  }
-  50% {
-    border-radius: 60% 40% 30% 70% / 55% 65% 35% 45%;
-  }
-}
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-@media (max-width: 900px) {
-  .hero-blob {
-    opacity: 0.35;
-    width: 70vw;
-  }
 }
 
 .scroll-cue {
