@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import GlowOrbs from "@/components/GlowOrbs";
 import ProjectCard from "@/components/ProjectCard";
 import SmoothScroll from "@/components/SmoothScroll";
+import SpiderSwing from "@/components/SpiderSwing";
 import { projects } from "@/data/projects";
 
 export default function Home() {
@@ -30,27 +31,30 @@ export default function Home() {
         <span className="hero-eyebrow">
           <span className="dot" /> AVAILABLE FOR FREELANCE WORK
         </span>
-        <h1>
-          <span className="line">
-            <span>MALIK</span>
-          </span>
-          <span className="line line-moiz">
-            <span>ABDUL MOIZ</span>
-          </span>
-          <span className="line">
-            <span>BUILDS WEB.</span>
-          </span>
-          <span className="hero-pop-wrap">
-            <Image
-              src="/portrait-pop.png"
-              alt="Portrait of Malik Abdul Moiz"
-              width={1145}
-              height={1374}
-              priority
-              className="hero-pop"
-            />
-          </span>
-        </h1>
+        <div className="hero-heading-wrap">
+          <h1>
+            <span className="line">
+              <span>MALIK</span>
+            </span>
+            <span className="line line-moiz">
+              <span>ABDUL MOIZ</span>
+            </span>
+            <span className="line">
+              <span>BUILDS WEB.</span>
+            </span>
+            <span className="hero-pop-wrap">
+              <Image
+                src="/portrait-pop.png"
+                alt="Portrait of Malik Abdul Moiz"
+                width={1145}
+                height={1374}
+                priority
+                className="hero-pop"
+              />
+            </span>
+          </h1>
+          <SpiderSwing />
+        </div>
         <p className="lead">
           Frontend developer in Rawalpindi, Pakistan — turning loud ideas
           into fast, accessible, and genuinely fun-to-use interfaces.
