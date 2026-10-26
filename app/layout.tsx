@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import CursorFX from "@/components/CursorFX";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import SmoothScroll from "@/components/SmoothScroll";
+import Transitions from "@/components/Transitions";
 
 export const metadata: Metadata = {
   title: "Malik Abdul Moiz — Frontend Developer",
@@ -37,7 +42,14 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <div className="noise" />
+        <SmoothScroll />
+        <CursorFX />
+        <Header />
+        <Transitions>{children}</Transitions>
+        <Footer />
+      </body>
     </html>
   );
 }
