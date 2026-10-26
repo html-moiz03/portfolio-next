@@ -198,14 +198,14 @@ export default function Home() {
       <div className="marquee-wrap">
         <div className="marquee">
           <span>
-            REACT <em>✦</em> NEXT.JS <em>✦</em> JAVASCRIPT <em>✦</em>{" "}
-            ACCESSIBLE UI <em>✦</em> ANIMATION <em>✦</em> VITE <em>✦</em>{" "}
-            FREELANCE READY <em>✦</em>
+            REACT <em>•</em> NEXT.JS <em>•</em> JAVASCRIPT <em>•</em>{" "}
+            ACCESSIBLE UI <em>•</em> ANIMATION <em>•</em> VITE <em>•</em>{" "}
+            FREELANCE READY <em>•</em>
           </span>
           <span>
-            REACT <em>✦</em> NEXT.JS <em>✦</em> JAVASCRIPT <em>✦</em>{" "}
-            ACCESSIBLE UI <em>✦</em> ANIMATION <em>✦</em> VITE <em>✦</em>{" "}
-            FREELANCE READY <em>✦</em>
+            REACT <em>•</em> NEXT.JS <em>•</em> JAVASCRIPT <em>•</em>{" "}
+            ACCESSIBLE UI <em>•</em> ANIMATION <em>•</em> VITE <em>•</em>{" "}
+            FREELANCE READY <em>•</em>
           </span>
         </div>
       </div>
