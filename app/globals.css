@@ -125,6 +125,13 @@ header {
   justify-content: space-between;
   padding: 26px clamp(20px, 5vw, 56px);
   mix-blend-mode: difference;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+}
+header.is-scrolled {
+  background: rgba(11, 11, 12, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  mix-blend-mode: normal;
 }
 .logo {
   font-family: "Syne", sans-serif;

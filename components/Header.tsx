@@ -15,14 +15,25 @@ const NAV_ITEMS = [
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   // Close the mobile menu automatically whenever a navigation completes.
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
 
+  // Once the user scrolls past the hero, give the header a solid
+  // background so its white nav text never collides/blends with
+  // whatever page content is scrolling underneath it.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [pathname]);
+
   return (
-    <header>
+    <header className={scrolled ? "is-scrolled" : undefined}>
       <Link href="/" className="logo">
         MOIZ//
       </Link>
