@@ -457,6 +457,66 @@ section {
   color: var(--paper);
 }
 
+/* ---------- worked-with strip ---------- */
+.worked-with {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 28px 40px;
+  padding: 40px clamp(20px, 5vw, 56px);
+  border-bottom: 1px solid rgba(11, 11, 12, 0.1);
+}
+.worked-with-label {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.worked-with-line {
+  width: 64px;
+  height: 1px;
+  background: rgba(11, 11, 12, 0.18);
+}
+.worked-with-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 32px;
+  list-style: none;
+  flex: 1;
+}
+.worked-with-list li {
+  font-family: "Syne", sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  opacity: 0.55;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+}
+.worked-with-list li:hover {
+  opacity: 1;
+}
+@media (max-width: 720px) {
+  .worked-with {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+  .worked-with-list {
+    gap: 12px 24px;
+  }
+  .worked-with-list li {
+    font-size: 0.92rem;
+  }
+}
+
 /* ---------- section headers ---------- */
 .section-tag {
   font-family: "JetBrains Mono", monospace;

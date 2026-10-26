@@ -66,6 +66,23 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ---------- WORKED WITH (light strip) ---------- */}
+      <section className="worked-with reveal">
+        <div className="worked-with-label">
+          <span>Worked with</span>
+          <span className="worked-with-line" />
+        </div>
+        <ul className="worked-with-list">
+          <li>Object BPO</li>
+          <li>Warrantix</li>
+          <li>HN Solutions</li>
+          <li>US-MAN Global Services</li>
+          <li>DecodeLabs</li>
+          <li>Zynvex</li>
+          <li>CodeAlpha</li>
+        </ul>
+      </section>
+
       {/* ---------- STATS (light) ---------- */}
       <section className="stats-section">
         <div className="stats-grid">
