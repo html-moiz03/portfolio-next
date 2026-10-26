@@ -1,4 +1,5 @@
 import Image from "next/image";
+import CountUp from "@/components/CountUp";
 import CursorFX from "@/components/CursorFX";
 import Footer from "@/components/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -135,15 +136,15 @@ export default function Home() {
             </h2>
           </div>
           <div className="stat-big reveal">
-            <div className="stat-big-number">9+</div>
+            <CountUp end={9} suffix="+" />
             <p>Public repos shipped and documented on GitHub.</p>
           </div>
           <div className="stat-big reveal">
-            <div className="stat-big-number">3</div>
+            <CountUp end={3} />
             <p>Internships completed — CodeAlpha, DecodeLabs, Zynvex.</p>
           </div>
           <div className="stat-big reveal">
-            <div className="stat-big-number">6</div>
+            <CountUp end={6} />
             <p>Full projects shipped end to end, live in production.</p>
           </div>
         </div>
@@ -153,26 +154,27 @@ export default function Home() {
       <section id="about" className="about-quote-section">
         <span className="section-tag reveal">01 / ABOUT</span>
         <h2 className="quote-heading reveal">
-          Not a <span className="accent">&quot;vibecoder.&quot;</span>
+          From sales calls to <span className="accent">shipped code.</span>
         </h2>
         <div className="about-grid">
           <div className="about-text reveal">
             <p>
-              I switched into frontend development after years in{" "}
+              I spent years in{" "}
               <strong>
                 business development, BPO sales, and team leadership
               </strong>{" "}
               — plus stretches in medical billing/credentialing and Umrah
-              travel consulting. Different world, same instinct: figure out
-              what people actually need and ship it.
+              travel consulting — before switching into frontend development.
+              Different world, same instinct: figure out what people
+              actually need and ship it.
             </p>
             <p>
               Now I&apos;m working through a{" "}
               <strong>BSc in Computer Science</strong> while building real,
               working projects — a restaurant site with full reservation
               validation, a CRM used in a warranty sales office, internship
-              builds for three different programs. I know the basics well
-              and I&apos;m climbing fast, on purpose, in public.
+              builds for three different programs. Still early in the
+              climb, but moving fast and shipping in public.
             </p>
           </div>
           <div className="about-fact reveal">
