@@ -77,10 +77,6 @@ export default function Home() {
           <div className="hero-bg-overlay" />
         </div>
 
-        <span className="hero-watermark" aria-hidden="true">
-          MOIZ
-        </span>
-
         <div className="hero-top-row">
           <span className="hero-eyebrow">
             <span className="dot" /> AVAILABLE FOR FREELANCE WORK
