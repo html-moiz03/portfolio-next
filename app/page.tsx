@@ -175,12 +175,12 @@ export default function Home() {
           <div className="about-fact reveal">
             <span className="fact-label">Fact 01</span>
             <div className="fact-number">
-              Currently <span className="accent">building HN Solutions</span>
+              Latest ship: <span className="accent">HN Solutions</span>
             </div>
             <p>
-              The client-facing site for an outbound sales BPO — services,
-              process, team, and standards pages, iterating on positioning
-              as the business grows.
+              Client-facing site for an outbound sales BPO — services,
+              process, team, and standards pages, built end to end and
+              shipped.
             </p>
             <a
               href="https://hn-solutions-nine.vercel.app"
