@@ -17,7 +17,7 @@ export const projects: Project[] = [
     category: "CRM",
     title: "Warrantix",
     description:
-      "A full CRM for my own warranty sales office — leads pipeline, customers, callbacks, tasks, and a team workspace. Being polished before rollout to my team.",
+      "A full CRM for my own warranty sales office — leads pipeline, customers, callbacks, tasks, and a team workspace. Built, shipped, and in use.",
     tags: ["Next.js", "Prisma", "Supabase", "Vercel"],
     accent: "#3d5aff",
     image: "/work/warrantix.jpg",
@@ -37,15 +37,15 @@ export const projects: Project[] = [
   },
   {
     index: "03",
-    category: "RESTAURANT SITE",
-    title: "The Coastal Spoon",
+    category: "AGENCY SITE",
+    title: "HN Solutions",
     description:
-      "A responsive restaurant site built in pure HTML/CSS/JS, with a table reservation system: full validation, password-strength meter, and screen-reader-friendly ARIA support.",
-    tags: ["HTML5", "CSS3", "Vanilla JS", "ARIA"],
+      "Client-facing portfolio site for an outbound sales BPO — services, process, team, and standards pages, positioned to win carrier trust at a glance.",
+    tags: ["React", "Vite", "Responsive"],
     accent: "#ff5e1a",
-    image: "/work/coastal-spoon.jpg",
-    liveUrl: "https://the-coastal-spoon4.netlify.app/",
-    codeUrl: "https://github.com/html-moiz03/decodelabs_task4",
+    image: "/work/hn-solutions.jpg",
+    liveUrl: "https://hn-solutions-nine.vercel.app",
+    codeUrl: "https://github.com/html-moiz03/hn-solutions",
   },
   {
     index: "04",
@@ -70,17 +70,5 @@ export const projects: Project[] = [
     image: "/work/lens.jpg",
     liveUrl: "https://lens-image-gallery.netlify.app",
     codeUrl: "https://github.com/html-moiz03/CodeAlpha_ImageGallery",
-  },
-  {
-    index: "06",
-    category: "MEDIA PLAYER",
-    title: "Vybe — Music Player",
-    description:
-      "Gold-and-black music player with a rotating vinyl + tonearm animation, animated equalizer bars, drag-to-seek progress, shuffle/repeat, and a 17-track playlist.",
-    tags: ["HTML5 Audio API", "CSS Animation", "Vanilla JS"],
-    accent: "#f6ff3f",
-    image: "/work/vybe.jpg",
-    liveUrl: "https://vybe-musicplayer.netlify.app",
-    codeUrl: "https://github.com/html-moiz03/CodeAlpha_MusicPlayer",
   },
 ];

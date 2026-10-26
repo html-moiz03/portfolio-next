@@ -154,40 +154,36 @@ export default function Home() {
       <section id="about" className="about-quote-section">
         <span className="section-tag reveal">01 / ABOUT</span>
         <h2 className="quote-heading reveal">
-          From sales calls to <span className="accent">shipped code.</span>
+          Built the skills, <span className="accent">shipped the proof.</span>
         </h2>
         <div className="about-grid">
           <div className="about-text reveal">
             <p>
-              I spent years in{" "}
-              <strong>
-                business development, BPO sales, and team leadership
-              </strong>{" "}
-              — plus stretches in medical billing/credentialing and Umrah
-              travel consulting — before switching into frontend development.
-              Different world, same instinct: figure out what people
-              actually need and ship it.
+              I switched into frontend development chasing one instinct:
+              figure out what people actually need and ship it. That turned
+              into a <strong>BSc in Computer Science</strong> — completed —
+              and a habit of building real, working projects instead of just
+              studying them.
             </p>
             <p>
-              Now I&apos;m working through a{" "}
-              <strong>BSc in Computer Science</strong> while building real,
-              working projects — a restaurant site with full reservation
-              validation, a CRM used in a warranty sales office, internship
-              builds for three different programs. Still early in the
-              climb, but moving fast and shipping in public.
+              A restaurant site with full reservation validation, a CRM used
+              in a warranty sales office, internship builds across three
+              different programs. Still early in the climb, but moving fast
+              and shipping in public.
             </p>
           </div>
           <div className="about-fact reveal">
             <span className="fact-label">Fact 01</span>
             <div className="fact-number">
-              Currently <span className="accent">building Warrantix</span>
+              Currently <span className="accent">building HN Solutions</span>
             </div>
             <p>
-              A full CRM for my own warranty sales team — leads, customers,
-              callbacks, tasks — before I take on new freelance clients.
+              The client-facing site for an outbound sales BPO — services,
+              process, team, and standards pages, iterating on positioning
+              as the business grows.
             </p>
             <a
-              href="https://warrantix-peach.vercel.app"
+              href="https://hn-solutions-nine.vercel.app"
               target="_blank"
               rel="noopener"
             >
@@ -217,8 +213,8 @@ export default function Home() {
         <span className="section-tag reveal">02 / LATEST WORK</span>
         <h2 className="section-title-huge reveal">Latest work</h2>
         <p className="work-lead reveal">
-          Six projects, from a warranty-office CRM to a restaurant site with
-          a full reservation flow. Each tile opens the live build.
+          Five projects, from a warranty-office CRM to a client-facing BPO
+          site. Each tile opens the live build.
         </p>
         <div className="work-grid">
           {projects.map((p) => (
@@ -274,8 +270,8 @@ export default function Home() {
             <div>
               <h4>Meta Front-End Developer Certificate</h4>
               <p>
-                Coursera certification, plus ongoing BSc in Computer Science
-                — building the fundamentals underneath the projects.
+                Coursera certification, plus a completed BSc in Computer
+                Science — building the fundamentals underneath the projects.
               </p>
             </div>
           </div>
