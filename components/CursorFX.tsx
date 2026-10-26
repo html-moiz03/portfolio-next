@@ -29,7 +29,7 @@ export default function CursorFX() {
     window.addEventListener("mousemove", onMove, { passive: true });
 
     const interactive = document.querySelectorAll(
-      "a, .skill-pill, .project-card"
+      "a, .btn, .work-tile, .pricing-card, .faq-item summary"
     );
     const onEnter = () => ringApi.start({ scale: 2.4 });
     const onLeave = () => ringApi.start({ scale: 1 });

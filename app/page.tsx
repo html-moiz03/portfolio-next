@@ -1,10 +1,47 @@
 import Image from "next/image";
 import CursorFX from "@/components/CursorFX";
 import Footer from "@/components/Footer";
-import GlowOrbs from "@/components/GlowOrbs";
-import ProjectCard from "@/components/ProjectCard";
 import SmoothScroll from "@/components/SmoothScroll";
+import WorkTile from "@/components/WorkTile";
 import { projects } from "@/data/projects";
+
+const services = [
+  {
+    name: "Frontend engineering",
+    tags: ["React", "Next.js", "Vite", "TypeScript", "Accessible UI"],
+  },
+  {
+    name: "CRMs & dashboards",
+    tags: ["Prisma", "Supabase", "Recharts", "Auth", "Role-based access"],
+  },
+  {
+    name: "Marketing sites",
+    tags: ["Multi-step forms", "SEO basics", "Responsive", "Animation"],
+  },
+  {
+    name: "UI polish & fixes",
+    tags: ["Bug fixes", "Performance", "Design handoff", "Refactors"],
+  },
+];
+
+const faqs = [
+  {
+    q: "What's the typical process?",
+    a: "A short discovery chat to scope the work, a plan with milestones, then build in visible stages so you're never waiting on a single big reveal.",
+  },
+  {
+    q: "Do you work with existing codebases?",
+    a: "Yes — plenty of my work is picking up an existing React/Next.js project, fixing bugs, or shipping new features inside it rather than starting from scratch.",
+  },
+  {
+    q: "How do we scope cost and timeline?",
+    a: "After the discovery chat I send a written quote with a timeline before anything starts, so there's no ambiguity about what's included.",
+  },
+  {
+    q: "Can you handle the backend too?",
+    a: "For CRMs and dashboards, yes — Prisma, Supabase, and API routes are part of my regular stack alongside the frontend.",
+  },
+];
 
 export default function Home() {
   return (
@@ -18,15 +55,19 @@ export default function Home() {
           MOIZ//
         </a>
         <nav>
-          <a href="#work">Work</a>
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#process">Process</a>
+          <a href="#about">Studio</a>
+          <a href="#work">Projects</a>
+          <a href="#services">Services</a>
+          <a href="#work-with-me">Pricing</a>
           <a href="#contact">Contact</a>
         </nav>
       </header>
 
+      {/* ---------- HERO (dark) ---------- */}
       <section className="hero" id="top">
+        <span className="hero-watermark" aria-hidden="true">
+          MOIZ
+        </span>
         <span className="hero-eyebrow">
           <span className="dot" /> AVAILABLE FOR FREELANCE WORK
         </span>
@@ -51,14 +92,14 @@ export default function Home() {
             />
           </span>
         </h1>
-        <p className="lead">
-          Frontend developer in Rawalpindi, Pakistan — turning loud ideas
-          into fast, accessible, and genuinely fun-to-use interfaces.
-          Vanilla JS, React, and a habit of over-animating everything.
+        <p className="hero-lead">
+          Frontend developer in Rawalpindi, Pakistan — I build fast,
+          accessible interfaces, CRMs, and marketing sites for founders who
+          need to ship.
         </p>
         <div className="hero-ctas">
-          <a href="#work" className="btn">
-            See the work ↓
+          <a href="#work-with-me" className="btn">
+            See how we can work together
           </a>
           <a
             href="https://github.com/html-moiz03"
@@ -69,30 +110,37 @@ export default function Home() {
             GitHub ↗
           </a>
         </div>
-        <div className="scroll-cue">
-          <div className="bar" /> Scroll
+      </section>
+
+      {/* ---------- STATS (light) ---------- */}
+      <section className="stats-section">
+        <div className="stats-grid">
+          <div className="stats-copy reveal">
+            <span className="section-tag">MOIZ™</span>
+            <h2>
+              I help founders ship <span className="accent">strategic</span>{" "}
+              products that are thoughtful, fast, and built to last.
+            </h2>
+          </div>
+          <div className="stat-big reveal">
+            <div className="stat-big-number">9+</div>
+            <p>Public repos shipped and documented on GitHub.</p>
+          </div>
+          <div className="stat-big reveal">
+            <div className="stat-big-number">3</div>
+            <p>Internships completed — CodeAlpha, DecodeLabs, Zynvex.</p>
+          </div>
+          <div className="stat-big reveal">
+            <div className="stat-big-number">6</div>
+            <p>Full projects shipped end to end, live in production.</p>
+          </div>
         </div>
       </section>
 
-      <div className="marquee-wrap">
-        <div className="marquee">
-          <span>
-            REACT <em>✦</em> NEXT.JS <em>✦</em> JAVASCRIPT <em>✦</em>{" "}
-            ACCESSIBLE UI <em>✦</em> ANIMATION <em>✦</em> VITE <em>✦</em>{" "}
-            FREELANCE READY <em>✦</em>
-          </span>
-          <span>
-            REACT <em>✦</em> NEXT.JS <em>✦</em> JAVASCRIPT <em>✦</em>{" "}
-            ACCESSIBLE UI <em>✦</em> ANIMATION <em>✦</em> VITE <em>✦</em>{" "}
-            FREELANCE READY <em>✦</em>
-          </span>
-        </div>
-      </div>
-
-      <section id="about">
-        <GlowOrbs variant="a" />
+      {/* ---------- ABOUT QUOTE (light) ---------- */}
+      <section id="about" className="about-quote-section">
         <span className="section-tag reveal">01 / ABOUT</span>
-        <h2 className="section-title reveal">
+        <h2 className="quote-heading reveal">
           Not a <span className="accent">&quot;vibecoder.&quot;</span>
         </h2>
         <div className="about-grid">
@@ -114,133 +162,201 @@ export default function Home() {
               builds for three different programs. I know the basics well
               and I&apos;m climbing fast, on purpose, in public.
             </p>
+          </div>
+          <div className="about-fact reveal">
+            <span className="fact-label">Fact 01</span>
+            <div className="fact-number">
+              Currently <span className="accent">building Warrantix</span>
+            </div>
             <p>
-              Currently building <strong>Warrantix</strong>, a full CRM for
-              my own warranty sales team — leads, customers, callbacks,
-              tasks — before I take on new freelance clients.
+              A full CRM for my own warranty sales team — leads, customers,
+              callbacks, tasks — before I take on new freelance clients.
             </p>
-          </div>
-          <div className="stat-cards">
-            <div className="stat-card">
-              <div className="num">9+</div>
-              <div className="label">Public repos</div>
-            </div>
-            <div className="stat-card">
-              <div className="num">3</div>
-              <div className="label">Internships completed</div>
-            </div>
-            <div className="stat-card">
-              <div className="num">6</div>
-              <div className="label">Shipped projects</div>
-            </div>
-            <div className="stat-card">
-              <div className="num">100%</div>
-              <div className="label">Self-taught momentum</div>
-            </div>
+            <a
+              href="https://warrantix-peach.vercel.app"
+              target="_blank"
+              rel="noopener"
+            >
+              See it live ↗
+            </a>
           </div>
         </div>
       </section>
 
-      <section id="skills">
-        <span className="section-tag reveal">02 / TOOLKIT</span>
-        <h2 className="section-title reveal">
-          What I <span className="accent">reach for.</span>
-        </h2>
-        <div className="skills-wrap">
-          {[
-            "HTML5",
-            "CSS3 / Animations",
-            "JavaScript (ES6+)",
-            "React + Vite",
-            "Next.js",
-            "Prisma + Supabase",
-            "Vercel / Netlify",
-            "ARIA Accessibility",
-            "Responsive / Mobile-first",
-            "Git & GitHub",
-            "Recharts / Data Viz",
-            "Form Validation & UX",
-          ].map((skill) => (
-            <span className="skill-pill reveal" key={skill}>
-              {skill}
-            </span>
-          ))}
+      <div className="marquee-wrap">
+        <div className="marquee">
+          <span>
+            REACT <em>✦</em> NEXT.JS <em>✦</em> JAVASCRIPT <em>✦</em>{" "}
+            ACCESSIBLE UI <em>✦</em> ANIMATION <em>✦</em> VITE <em>✦</em>{" "}
+            FREELANCE READY <em>✦</em>
+          </span>
+          <span>
+            REACT <em>✦</em> NEXT.JS <em>✦</em> JAVASCRIPT <em>✦</em>{" "}
+            ACCESSIBLE UI <em>✦</em> ANIMATION <em>✦</em> VITE <em>✦</em>{" "}
+            FREELANCE READY <em>✦</em>
+          </span>
         </div>
-      </section>
+      </div>
 
-      <section id="work">
-        <GlowOrbs variant="b" />
-        <span className="section-tag reveal">03 / SELECTED WORK</span>
-        <h2 className="section-title reveal">
-          Projects that <span className="accent">actually ship.</span>
-        </h2>
-
-        <div className="project-grid">
+      {/* ---------- LATEST WORK (light) ---------- */}
+      <section id="work" className="work-section">
+        <span className="section-tag reveal">02 / LATEST WORK</span>
+        <h2 className="section-title-huge reveal">Latest work</h2>
+        <p className="work-lead reveal">
+          Six projects, from a warranty-office CRM to a restaurant site with
+          a full reservation flow. Each tile opens the live build.
+        </p>
+        <div className="work-grid">
           {projects.map((p) => (
-            <ProjectCard p={p} key={p.title} />
+            <WorkTile p={p} key={p.title} />
           ))}
         </div>
+      </section>
 
-        <div className="more-strip reveal">
-          <div>
-            <strong>Also on the bench:</strong> GymTrack PWA w/ AI coaching
-            (FitBot), a Mario-style Canvas platformer, VOID STRIKER space
-            shooter, AIM LAB aim trainer, and a Calc calculator app.
+      {/* ---------- SERVICES (dark, huge type) ---------- */}
+      <section id="services" className="services-section">
+        <div className="services-intro">
+          <span className="section-tag">SERVICES</span>
+          <h2>
+            Work built to help founders move faster and ship with
+            confidence.
+          </h2>
+          <a href="#work-with-me" className="inline-link">
+            See how we can work together ↗
+          </a>
+        </div>
+        {services.map((s) => (
+          <div className="service-row reveal" key={s.name}>
+            <h3>{s.name}</h3>
+            <div className="service-tags">
+              {s.tags.map((t) => (
+                <span key={t}>
+                  <span className="plus">+</span> {t}
+                </span>
+              ))}
+            </div>
           </div>
-          <div className="chips">
-            <span className="chip">GymTrack</span>
-            <span className="chip">Canvas Games</span>
-            <span className="chip">Calc</span>
+        ))}
+      </section>
+
+      {/* ---------- PROCESS (peach accent) ---------- */}
+      <section id="process" className="process-section">
+        <span className="section-tag reveal">03 / HOW I GOT HERE</span>
+        <h2 className="section-title-huge reveal">The winding path.</h2>
+        <div className="process-list">
+          <div className="process-row reveal" style={{ ["--pbg" as string]: "#ffe3d1" }}>
+            <span className="process-num">01</span>
+            <div>
+              <h4>Business development &amp; sales</h4>
+              <p>
+                Years in BPO sales closing, team leadership, medical
+                billing/credentialing, and Umrah travel consulting — where I
+                learned how to actually talk to clients and close.
+              </p>
+            </div>
+          </div>
+          <div className="process-row reveal" style={{ ["--pbg" as string]: "#ffd4bd" }}>
+            <span className="process-num">02</span>
+            <div>
+              <h4>Meta Front-End Developer Certificate</h4>
+              <p>
+                Coursera certification, plus ongoing BSc in Computer Science
+                — building the fundamentals underneath the projects.
+              </p>
+            </div>
+          </div>
+          <div className="process-row reveal" style={{ ["--pbg" as string]: "#ffc4a3" }}>
+            <span className="process-num">03</span>
+            <div>
+              <h4>CodeAlpha → DecodeLabs → Zynvex Solutions</h4>
+              <p>
+                Shipped an image gallery, music player, and portfolio at
+                CodeAlpha; a full restaurant site with reservations at
+                DecodeLabs; and a React CRM plus warranty site at Zynvex.
+              </p>
+            </div>
+          </div>
+          <div className="process-row reveal" style={{ ["--pbg" as string]: "#ffb389" }}>
+            <span className="process-num">04</span>
+            <div>
+              <h4>Building Warrantix, hunting freelance clients</h4>
+              <p>
+                Finishing my own CRM for my warranty sales office, then
+                rolling straight into the next portfolio piece — this site
+                included.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="process">
-        <span className="section-tag reveal">04 / HOW I GOT HERE</span>
-        <h2 className="section-title reveal">
-          The <span className="accent">winding path.</span>
-        </h2>
-        <div className="timeline">
-          <div className="t-item reveal">
-            <span className="t-tag">01 / 04 — Before code</span>
-            <h4>Business Development &amp; Sales</h4>
+      {/* ---------- WORK WITH ME / PRICING (light) ---------- */}
+      <section id="work-with-me" className="pricing-section">
+        <span className="section-tag reveal">04 / WORK WITH ME</span>
+        <h2 className="section-title-huge reveal">How we can work together</h2>
+        <p className="work-lead reveal">
+          Two ways in — tell me which fits and I&apos;ll follow up with a
+          written quote and timeline before anything starts.
+        </p>
+        <div className="pricing-grid">
+          <div className="pricing-card reveal">
+            <h3>Project-based</h3>
             <p>
-              Years in BPO sales closing, team leadership, medical
-              billing/credentialing, and Umrah travel consulting — where I
-              learned how to actually talk to clients and close.
+              A single, scoped build — a marketing site, a CRM module, a
+              feature — delivered start to finish on an agreed timeline.
             </p>
+            <ul>
+              <li>+ Fixed scope &amp; written quote upfront</li>
+              <li>+ Clear milestones, no surprise work</li>
+              <li>+ Great for launches, rebrands, or one-off builds</li>
+            </ul>
+            <a
+              href="mailto:abdulmoizzaheer0997@gmail.com?subject=Project-based work"
+              className="btn dark"
+            >
+              Get a quote
+            </a>
           </div>
-          <div className="t-item reveal">
-            <span className="t-tag">02 / 04 — Foundation</span>
-            <h4>Meta Front-End Developer Certificate</h4>
+          <div className="pricing-card reveal highlight">
+            <h3>Ongoing support</h3>
             <p>
-              Coursera certification, plus ongoing BSc in Computer Science —
-              building the fundamentals underneath the projects.
+              Ad-hoc or recurring work — bug fixes, new features, dashboard
+              tweaks — for a product you already have live.
             </p>
-          </div>
-          <div className="t-item reveal">
-            <span className="t-tag">03 / 04 — Internships</span>
-            <h4>CodeAlpha → DecodeLabs → Zynvex Solutions</h4>
-            <p>
-              Shipped an image gallery, music player, and portfolio at
-              CodeAlpha; a full restaurant site with reservations at
-              DecodeLabs; and a React CRM plus warranty site at Zynvex.
-            </p>
-          </div>
-          <div className="t-item reveal">
-            <span className="t-tag">04 / 04 — Now</span>
-            <h4>Building Warrantix, hunting freelance clients</h4>
-            <p>
-              Finishing my own CRM for my warranty sales office, then
-              rolling straight into the next portfolio piece — this site
-              included.
-            </p>
+            <ul>
+              <li>+ Pause or pick back up anytime</li>
+              <li>+ Direct access, fast turnaround</li>
+              <li>+ Good fit for a product that keeps evolving</li>
+            </ul>
+            <a
+              href="mailto:abdulmoizzaheer0997@gmail.com?subject=Ongoing support"
+              className="btn"
+            >
+              Let&apos;s talk
+            </a>
           </div>
         </div>
       </section>
 
-      <section id="contact">
-        <GlowOrbs variant="c" />
+      {/* ---------- FAQ (light) ---------- */}
+      <section className="faq-section">
+        <span className="section-tag reveal">FAQ</span>
+        <h2 className="section-title-huge reveal">Questions, answered.</h2>
+        <div className="faq-list">
+          {faqs.map((f, i) => (
+            <details className="faq-item reveal" key={f.q}>
+              <summary>
+                <span>{f.q}</span>
+                <span className="faq-num">{String(i + 1).padStart(2, "0")}</span>
+              </summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      {/* ---------- CONTACT (dark, big type) ---------- */}
+      <section id="contact" className="contact-section">
         <div className="contact-box reveal">
           <h2>
             Let&apos;s build
