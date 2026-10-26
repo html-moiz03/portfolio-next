@@ -83,10 +83,10 @@ export default function Home() {
           </span>
           <span className="hero-pop-wrap">
             <Image
-              src="/portrait-pop.png"
-              alt="Portrait of Malik Abdul Moiz"
-              width={1145}
-              height={1374}
+              src="/sculpture.jpg"
+              alt="Marble bust sculpture portrait"
+              width={1536}
+              height={1024}
               priority
               className="hero-pop"
             />

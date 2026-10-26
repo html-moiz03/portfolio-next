@@ -296,10 +296,13 @@ section {
   position: absolute;
   top: 0.5em;
   right: 2vw;
-  width: clamp(140px, 17vw, 230px);
+  width: clamp(220px, 24vw, 360px);
   z-index: 3;
   pointer-events: none;
   animation: heroPopIn 0.9s steps(7, end) 0.5s both;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
 }
 .hero-pop {
   width: 100%;
@@ -325,7 +328,7 @@ section {
   .hero-pop-wrap {
     display: block;
     position: static;
-    width: clamp(110px, 36vw, 170px);
+    width: clamp(200px, 70vw, 320px);
     margin: 18px 0 0 auto;
   }
 }
