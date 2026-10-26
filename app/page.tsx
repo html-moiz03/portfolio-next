@@ -63,52 +63,68 @@ export default function Home() {
         </nav>
       </header>
 
-      {/* ---------- HERO (dark) ---------- */}
+      {/* ---------- HERO (full-bleed sculpture photo) ---------- */}
       <section className="hero" id="top">
+        <div className="hero-bg">
+          <Image
+            src="/sculpture.jpg"
+            alt="Marble bust sculpture portrait"
+            fill
+            priority
+            sizes="100vw"
+            className="hero-bg-img"
+          />
+          <div className="hero-bg-overlay" />
+        </div>
+
         <span className="hero-watermark" aria-hidden="true">
           MOIZ
         </span>
-        <span className="hero-eyebrow">
-          <span className="dot" /> AVAILABLE FOR FREELANCE WORK
-        </span>
-        <h1>
-          <span className="line">
-            <span>MALIK</span>
+
+        <div className="hero-top-row">
+          <span className="hero-eyebrow">
+            <span className="dot" /> AVAILABLE FOR FREELANCE WORK
           </span>
-          <span className="line line-moiz">
-            <span>ABDUL MOIZ</span>
-          </span>
-          <span className="line">
-            <span>BUILDS WEB.</span>
-          </span>
-          <span className="hero-pop-wrap">
-            <Image
-              src="/sculpture.jpg"
-              alt="Marble bust sculpture portrait"
-              width={1536}
-              height={1024}
-              priority
-              className="hero-pop"
-            />
-          </span>
-        </h1>
-        <p className="hero-lead">
-          Frontend developer in Rawalpindi, Pakistan — I build fast,
-          accessible interfaces, CRMs, and marketing sites for founders who
-          need to ship.
-        </p>
-        <div className="hero-ctas">
-          <a href="#work-with-me" className="btn">
-            See how we can work together
-          </a>
-          <a
-            href="https://github.com/html-moiz03"
-            target="_blank"
-            rel="noopener"
-            className="btn alt"
-          >
-            GitHub ↗
-          </a>
+          <ul className="hero-tags">
+            <li>Frontend engineering</li>
+            <li>CRMs &amp; dashboards</li>
+            <li>Marketing sites</li>
+            <li>UI polish &amp; fixes</li>
+          </ul>
+        </div>
+
+        <div className="hero-bottom-row">
+          <h1 className="hero-heading">
+            <span className="line">
+              <span>MALIK</span>
+            </span>
+            <span className="line line-moiz">
+              <span>ABDUL MOIZ</span>
+            </span>
+            <span className="line">
+              <span>BUILDS WEB.</span>
+            </span>
+          </h1>
+          <div className="hero-side">
+            <p className="hero-lead">
+              Frontend developer in Rawalpindi, Pakistan — I build fast,
+              accessible interfaces, CRMs, and marketing sites for founders
+              who need to ship.
+            </p>
+            <div className="hero-ctas">
+              <a href="#work-with-me" className="btn">
+                See how we can work together
+              </a>
+              <a
+                href="https://github.com/html-moiz03"
+                target="_blank"
+                rel="noopener"
+                className="btn alt"
+              >
+                GitHub ↗
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
