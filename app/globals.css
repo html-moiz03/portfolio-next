@@ -223,7 +223,7 @@ section {
 }
 .hero-bg-img {
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center 4%;
 }
 .hero-bg-overlay {
   position: absolute;
