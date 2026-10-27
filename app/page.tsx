@@ -66,21 +66,39 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ---------- WORKED WITH (light strip) ---------- */}
+      {/* ---------- EXPERIENCE / INTERNSHIPS / SELECTED WORK (light strip) ---------- */}
       <section className="worked-with reveal">
-        <div className="worked-with-label">
-          <span>Worked with</span>
-          <span className="worked-with-line" />
+        <div className="worked-with-row">
+          <div className="worked-with-label">
+            <span>Experience</span>
+            <span className="worked-with-line" />
+          </div>
+          <ul className="worked-with-list">
+            <li>Object BPO</li>
+            <li>US-MAN Global Services</li>
+          </ul>
         </div>
-        <ul className="worked-with-list">
-          <li>Object BPO</li>
-          <li>Warrantix</li>
-          <li>HN Solutions</li>
-          <li>US-MAN Global Services</li>
-          <li>DecodeLabs</li>
-          <li>Zynvex</li>
-          <li>CodeAlpha</li>
-        </ul>
+        <div className="worked-with-row">
+          <div className="worked-with-label">
+            <span>Internships</span>
+            <span className="worked-with-line" />
+          </div>
+          <ul className="worked-with-list">
+            <li>CodeAlpha</li>
+            <li>DecodeLabs</li>
+            <li>Zynvex</li>
+          </ul>
+        </div>
+        <div className="worked-with-row">
+          <div className="worked-with-label">
+            <span>Selected work</span>
+            <span className="worked-with-line" />
+          </div>
+          <ul className="worked-with-list">
+            <li>Warrantix</li>
+            <li>HN Solutions</li>
+          </ul>
+        </div>
       </section>
 
       {/* ---------- STATS (light) ---------- */}
@@ -102,7 +120,7 @@ export default function Home() {
             <p>Internships completed — CodeAlpha, DecodeLabs, Zynvex.</p>
           </div>
           <div className="stat-big reveal">
-            <CountUp end={6} />
+            <CountUp end={5} />
             <p>Full projects shipped end to end, live in production.</p>
           </div>
         </div>
