@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const PROJECT_TYPES = [
   "CRM / dashboard",
@@ -14,6 +14,91 @@ const BUDGETS = [
   "Ongoing retainer — $150–$400/mo",
   "Not sure yet",
 ];
+
+// A native <select>'s closed state takes our CSS fine, but the dropdown
+// POPUP is drawn by the browser/OS using its own color scheme — setting
+// `color-scheme: dark` on the element doesn't reliably override that
+// (confirmed against real desktop Chrome: popup stayed white-on-white).
+// So instead of fighting native select theming, this is a small
+// custom dropdown built from a button + an absolutely-positioned list,
+// styled entirely with our own CSS — same look in every browser.
+function Dropdown({
+  label,
+  options,
+  value,
+  onChange,
+}: {
+  label: string;
+  options: string[];
+  value: string;
+  onChange: (v: string) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onDocClick = (e: MouseEvent) => {
+      if (rootRef.current && !rootRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("mousedown", onDocClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onDocClick);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
+  return (
+    <label>
+      <span>{label}</span>
+      <div className="dropdown" ref={rootRef}>
+        <button
+          type="button"
+          className={`dropdown-trigger${open ? " is-open" : ""}`}
+          aria-haspopup="listbox"
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span>{value}</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+            <path
+              d="M3 5l4 4 4-4"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+        {open && (
+          <ul className="dropdown-menu" role="listbox">
+            {options.map((opt) => (
+              <li
+                key={opt}
+                role="option"
+                aria-selected={opt === value}
+                className={opt === value ? "is-selected" : undefined}
+                onClick={() => {
+                  onChange(opt);
+                  setOpen(false);
+                }}
+              >
+                {opt}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </label>
+  );
+}
 
 // No backend on this site, so this doesn't silently POST anywhere — it
 // composes a pre-filled email and opens the visitor's own mail client on
@@ -34,30 +119,19 @@ export default function ContactForm() {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
-      <label>
-        <span>Project type</span>
-        <select
-          value={projectType}
-          onChange={(e) => setProjectType(e.target.value)}
-        >
-          {PROJECT_TYPES.map((t) => (
-            <option key={t} value={t}>
-              {t}
-            </option>
-          ))}
-        </select>
-      </label>
+      <Dropdown
+        label="Project type"
+        options={PROJECT_TYPES}
+        value={projectType}
+        onChange={setProjectType}
+      />
 
-      <label>
-        <span>Budget range</span>
-        <select value={budget} onChange={(e) => setBudget(e.target.value)}>
-          {BUDGETS.map((b) => (
-            <option key={b} value={b}>
-              {b}
-            </option>
-          ))}
-        </select>
-      </label>
+      <Dropdown
+        label="Budget range"
+        options={BUDGETS}
+        value={budget}
+        onChange={setBudget}
+      />
 
       <label>
         <span>What do you need built?</span>

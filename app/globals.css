@@ -1330,7 +1330,6 @@ section {
   font-weight: 600;
   color: rgba(255, 255, 255, 0.75);
 }
-.contact-form select,
 .contact-form textarea {
   font-family: "Space Grotesk", sans-serif;
   font-size: 0.95rem;
@@ -1342,19 +1341,80 @@ section {
   color: var(--paper);
   resize: vertical;
 }
-.contact-form select {
-  /* The closed <select> picks up our CSS fine, but its native dropdown
-     popup (the options list) is drawn by the browser/OS using its own
-     color scheme, which defaults to light — that's why unselected
-     options were washed-out light-gray-on-white. Declaring this select
-     as dark tells the browser to draw that native popup in dark colors
-     (solid dark background, light text) across Chrome/Safari/Firefox. */
-  color-scheme: dark;
-}
-.contact-form select:focus,
 .contact-form textarea:focus {
   outline: none;
   border-color: var(--accent);
+}
+
+/* Custom dropdown — replaces the native <select>. A native select's
+   POPUP is drawn by the browser/OS using its own color scheme, and
+   `color-scheme: dark` on the element doesn't reliably override that
+   (confirmed on real desktop Chrome: popup stayed white background /
+   near-white text). Building the popup ourselves guarantees the same
+   dark, readable styling in every browser. */
+.dropdown {
+  position: relative;
+}
+.dropdown-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: var(--paper);
+  cursor: pointer;
+  text-align: left;
+}
+.dropdown-trigger svg {
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+  opacity: 0.7;
+}
+.dropdown-trigger.is-open,
+.dropdown-trigger:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+}
+.dropdown-trigger.is-open svg {
+  transform: rotate(180deg);
+}
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  list-style: none;
+  background: #19191b;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  padding: 6px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  max-height: 240px;
+  overflow-y: auto;
+}
+.dropdown-menu li {
+  padding: 10px 12px;
+  border-radius: 7px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--paper);
+  cursor: pointer;
+}
+.dropdown-menu li:hover,
+.dropdown-menu li:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+}
+.dropdown-menu li.is-selected {
+  color: var(--accent);
+  font-weight: 700;
 }
 .contact-form button {
   margin-top: 4px;
