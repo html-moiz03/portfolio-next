@@ -33,7 +33,13 @@ export default function Header() {
   }, [pathname]);
 
   return (
-    <header className={scrolled ? "is-scrolled" : undefined}>
+    <header
+      className={
+        [scrolled && "is-scrolled", open && "nav-open"]
+          .filter(Boolean)
+          .join(" ") || undefined
+      }
+    >
       <Link href="/" className="logo">
         MOIZ//
       </Link>

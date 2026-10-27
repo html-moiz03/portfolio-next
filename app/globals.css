@@ -133,6 +133,16 @@ header.is-scrolled {
   -webkit-backdrop-filter: blur(14px);
   mix-blend-mode: normal;
 }
+/* Mobile menu open: solid + mix-blend-mode normal like .is-scrolled, but
+   deliberately WITHOUT backdrop-filter. backdrop-filter establishes a new
+   containing block for descendants, which breaks .nav-mobile's
+   `position: fixed; inset: 0` (it then sizes against the ~84px header
+   box instead of the viewport, leaving the panel looking translucent and
+   only ~150px tall under the statue hero). */
+header.nav-open {
+  background: var(--ink);
+  mix-blend-mode: normal;
+}
 .logo {
   font-family: "Syne", sans-serif;
   font-weight: 800;
