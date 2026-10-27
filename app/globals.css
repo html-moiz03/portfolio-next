@@ -1342,6 +1342,15 @@ section {
   color: var(--paper);
   resize: vertical;
 }
+.contact-form select {
+  /* The closed <select> picks up our CSS fine, but its native dropdown
+     popup (the options list) is drawn by the browser/OS using its own
+     color scheme, which defaults to light — that's why unselected
+     options were washed-out light-gray-on-white. Declaring this select
+     as dark tells the browser to draw that native popup in dark colors
+     (solid dark background, light text) across Chrome/Safari/Firefox. */
+  color-scheme: dark;
+}
 .contact-form select:focus,
 .contact-form textarea:focus {
   outline: none;
