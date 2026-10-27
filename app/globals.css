@@ -415,6 +415,20 @@ section {
   gap: 16px;
   margin-top: 28px;
 }
+.hero-github-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.hero-github-link:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.6);
+}
 @media (max-width: 860px) {
   .hero {
     padding: 120px 20px 40px;
@@ -661,6 +675,123 @@ section {
   color: var(--accent);
 }
 
+/* ---------- status tags ---------- */
+.status-tag {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 100px;
+  border: 1px solid rgba(11, 11, 12, 0.18);
+  color: var(--muted);
+  white-space: nowrap;
+}
+.status-tag.status-progress {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.status-tag.status-done {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+/* ---------- evidence list (about section) ---------- */
+.evidence-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 36px;
+}
+.evidence-item {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px clamp(18px, 3vw, 28px);
+}
+.evidence-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin-bottom: 10px;
+}
+.evidence-head h4 {
+  font-family: "Syne", sans-serif;
+  font-size: 1.1rem;
+  text-transform: none;
+}
+.evidence-item p {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.evidence-item a {
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+/* ---------- process row status head ---------- */
+.process-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-bottom: 8px;
+}
+.process-head h4 {
+  margin-bottom: 0;
+}
+
+/* ---------- how I work (light, numbered rows) ---------- */
+.how-section {
+  background: var(--paper);
+}
+.how-list {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+}
+.how-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 20px;
+  align-items: start;
+  padding: 30px 0;
+  border-top: 1px solid rgba(11, 11, 12, 0.1);
+}
+.how-row:last-child {
+  border-bottom: 1px solid rgba(11, 11, 12, 0.1);
+}
+.how-num {
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+.how-row h4 {
+  font-family: "Syne", sans-serif;
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+  text-transform: none;
+  margin-bottom: 8px;
+}
+.how-row p {
+  font-weight: 500;
+  color: var(--muted);
+  max-width: 680px;
+  line-height: 1.65;
+}
+@media (max-width: 640px) {
+  .how-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ---------- latest work (light) ---------- */
 .work-section {
   background: var(--paper);
@@ -676,11 +807,15 @@ section {
     grid-template-columns: 1fr;
   }
 }
+.work-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+}
 .work-tile {
   position: relative;
   display: block;
   aspect-ratio: 4 / 3;
-  border-radius: 16px;
   overflow: hidden;
   isolation: isolate;
 }
@@ -742,6 +877,68 @@ section {
   border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
+/* ---------- work card footer: demo/code links + case study ---------- */
+.work-card-footer {
+  padding: 18px clamp(16px, 3vw, 24px) 22px;
+}
+.work-card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin-bottom: 4px;
+}
+.work-card-links a {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--accent);
+}
+.work-case-study {
+  margin-top: 12px;
+  border-top: 1px solid rgba(11, 11, 12, 0.1);
+  padding-top: 12px;
+}
+.work-case-study summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--ink);
+}
+.work-case-study summary::-webkit-details-marker {
+  display: none;
+}
+.work-case-study-arrow {
+  font-size: 0.75rem;
+  color: var(--muted);
+  transition: transform 0.2s ease;
+}
+.work-case-study[open] .work-case-study-arrow {
+  transform: rotate(180deg);
+}
+.work-case-study dl {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.work-case-study dt {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.work-case-study dd {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(11, 11, 12, 0.78);
+  font-weight: 500;
+}
+
 /* ---------- services (dark, huge type) ---------- */
 .services-section {
   background: var(--ink);
@@ -768,16 +965,18 @@ section {
   font-size: 0.95rem;
 }
 .service-row {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 14px;
   padding: 34px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 .service-row:last-child {
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.service-row-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
 }
 .service-row h3 {
   font-size: clamp(1.8rem, 5vw, 3.4rem);
@@ -794,6 +993,50 @@ section {
 }
 .service-tags .plus {
   color: var(--accent);
+}
+.service-outcome {
+  max-width: 620px;
+  margin-top: 16px;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.68);
+}
+.service-preview {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 22px;
+  padding: 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.service-preview:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.04);
+}
+.service-preview-thumb {
+  position: relative;
+  width: 64px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.service-preview-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.service-preview-title {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--accent);
+}
+.service-preview-note {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.55);
 }
 
 /* ---------- process (peach blocks) ---------- */
@@ -879,6 +1122,27 @@ section {
 .pricing-card.highlight > p {
   color: rgba(255, 255, 255, 0.72);
 }
+.pricing-card .price-tag {
+  font-family: "Syne", sans-serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+.pricing-card.highlight .price-tag {
+  color: #fff;
+}
+.pricing-card .price-tag span {
+  display: block;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.pricing-card.highlight .price-tag span {
+  color: rgba(255, 255, 255, 0.55);
+}
 .pricing-card ul {
   list-style: none;
   display: flex;
@@ -939,21 +1203,57 @@ section {
 /* ---------- contact (dark, big type) ---------- */
 .contact-section {
   background: var(--ink);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+  align-items: flex-start;
+  padding-bottom: 100px;
 }
 .contact-box {
   color: var(--paper);
   position: relative;
+  flex: 1 1 520px;
+}
+.contact-box .section-tag {
+  color: rgba(255, 255, 255, 0.5);
 }
 .contact-box h2 {
   font-size: clamp(2.6rem, 8vw, 5.6rem);
   text-transform: uppercase;
+  margin-top: 10px;
 }
 .contact-box p {
   font-size: 1.1rem;
   font-weight: 500;
-  margin: 24px 0 36px;
+  margin: 24px 0 28px;
   max-width: 560px;
   color: rgba(255, 255, 255, 0.72);
+}
+.contact-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px 40px;
+  margin-bottom: 34px;
+  padding: 22px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+.contact-meta > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.contact-meta-label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.45);
+}
+.contact-meta > div > span:last-child {
+  font-weight: 700;
+  font-size: 0.95rem;
+  max-width: 240px;
 }
 .contact-links {
   display: flex;
@@ -983,6 +1283,73 @@ section {
   background: #fff;
   color: var(--ink);
   border-color: #fff;
+}
+
+/* ---------- contact form ---------- */
+.contact-form-wrap {
+  flex: 1 1 380px;
+  max-width: 440px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: clamp(24px, 3vw, 34px);
+  color: var(--paper);
+}
+.contact-form-wrap h3 {
+  font-size: 1.3rem;
+  text-transform: none;
+  margin-bottom: 10px;
+}
+.contact-form-wrap > p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.55;
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+}
+.contact-form select,
+.contact-form textarea {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  padding: 12px 14px;
+  color: var(--paper);
+  resize: vertical;
+}
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.contact-form button {
+  margin-top: 4px;
+  border: none;
+  cursor: pointer;
+}
+@media (max-width: 760px) {
+  .contact-section {
+    flex-direction: column;
+  }
+  .contact-form-wrap {
+    max-width: none;
+    width: 100%;
+  }
 }
 
 footer {

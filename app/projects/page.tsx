@@ -13,7 +13,9 @@ export default function Projects() {
       <h2 className="section-title-huge reveal">Latest work</h2>
       <p className="work-lead reveal">
         Five projects, from a warranty-office CRM to a client-facing BPO
-        site. Each tile opens the live build.
+        site. Each one links to its live build and source where public, plus
+        a case study on the problem, the decisions, and what actually went
+        wrong.
       </p>
       <div className="work-grid">
         {projects.map((p) => (

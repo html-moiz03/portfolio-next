@@ -50,18 +50,21 @@ export default function Home() {
               who need to ship.
             </p>
             <div className="hero-ctas">
-              <Link href="/pricing" className="btn">
-                See how we can work together
+              <Link href="/projects" className="btn">
+                View projects
               </Link>
-              <a
-                href="https://github.com/html-moiz03"
-                target="_blank"
-                rel="noopener"
-                className="btn alt"
-              >
-                GitHub ↗
-              </a>
+              <Link href="/contact" className="btn alt">
+                Hire me
+              </Link>
             </div>
+            <a
+              href="https://github.com/html-moiz03"
+              target="_blank"
+              rel="noopener"
+              className="hero-github-link"
+            >
+              See the code on GitHub ↗
+            </a>
           </div>
         </div>
       </section>
@@ -107,8 +110,12 @@ export default function Home() {
           <div className="stats-copy reveal">
             <span className="section-tag">MOIZ™</span>
             <h2>
-              I help founders ship <span className="accent">strategic</span>{" "}
-              products that are thoughtful, fast, and built to last.
+              I built the CRM I&apos;m{" "}
+              <span className="accent">rolling out</span> to my own sales
+              office, turned a multi-step
+              warranty quote form into one that stopped losing leads halfway
+              through, and replaced a freelancer&apos;s spreadsheet with a
+              working Kanban board.
             </h2>
           </div>
           <div className="stat-big reveal">
