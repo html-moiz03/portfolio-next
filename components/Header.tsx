@@ -35,9 +35,15 @@ export default function Header() {
   return (
     <header
       className={
-        [scrolled && "is-scrolled", open && "nav-open"]
-          .filter(Boolean)
-          .join(" ") || undefined
+        // Mutually exclusive on purpose: .is-scrolled carries
+        // backdrop-filter (for the frosted-glass look while scrolling),
+        // and backdrop-filter establishes a new containing block for any
+        // `position: fixed` descendant. .nav-mobile relies on being fixed
+        // relative to the viewport (`inset: 0`) to cover the full screen,
+        // so if both classes land on <header> at once (e.g. user scrolls
+        // THEN opens the menu), the blur breaks the mobile panel back
+        // down to a small translucent box. Open always wins.
+        open ? "nav-open" : scrolled ? "is-scrolled" : undefined
       }
     >
       <Link href="/" className="logo">
